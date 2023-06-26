@@ -20,8 +20,8 @@ class Films(Template):
         return f"{self.title} ({self.publishing_year})"
 
 class Series(Template):
-    def __init__(self, episode_number, season_number, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, title, publising_year, genre, episode_number, season_number):
+        super().__init__(title, publising_year, genre)
         self.episode_number = episode_number
         self.season_number = season_number
 
@@ -76,6 +76,7 @@ def top_titles(films_series, num_titles):
     top = sorted_media[:num_titles]
     return [media for media in top]
 
+
 if __name__ == "__main__":
     #Show movies info
     print("Films available on the library: ")
@@ -104,3 +105,4 @@ if __name__ == "__main__":
     top_titles_list = top_titles(films_series, num_top_titles)
     for item in top_titles_list:
         print(f"{item}, number of plays: {item.plays_number}")
+
